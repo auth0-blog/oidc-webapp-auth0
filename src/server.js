@@ -6,7 +6,6 @@ const handlebars = require('express-handlebars');
 const path = require('path');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
-const request = require('request-promise');
 const session = require('express-session');
 
 // loading env vars from .env file
@@ -14,6 +13,10 @@ require('dotenv').config();
 
 const app = express();
 
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((user, done) => done(null, user));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(crypto.randomBytes(16).toString('hex')));
 app.use(
