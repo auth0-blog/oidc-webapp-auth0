@@ -14,8 +14,6 @@ require('dotenv').config();
 
 const app = express();
 
-// Configure Passport to use Auth0
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(crypto.randomBytes(16).toString('hex')));
 app.use(
