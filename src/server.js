@@ -6,6 +6,7 @@ const handlebars = require('express-handlebars');
 const path = require('path');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
+const request = require('request-promise');
 const session = require('express-session');
 
 // loading env vars from .env file
@@ -47,6 +48,14 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/callback', async (req, res) => {
+  res.status(501).send();
+});
+
+app.get('/to-dos', async (req, res) => {
+  res.status(501).send();
+});
+
+app.get('/remove-to-do/:id', async (req, res) => {
   res.status(501).send();
 });
 

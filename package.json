@@ -20,7 +20,9 @@
     "lint-staged": "^8.2.1",
     "passport": "^0.4.0",
     "passport-auth0": "^1.1.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
   },
   "husky": {
     "hooks": {
