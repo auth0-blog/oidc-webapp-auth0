@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const crypto = require('crypto');
 const express = require('express');
@@ -6,7 +5,6 @@ const handlebars = require('express-handlebars');
 const path = require('path');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
-const request = require('request-promise');
 const session = require('express-session');
 
 // loading env vars from .env file
@@ -18,7 +16,7 @@ passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(crypto.randomBytes(16).toString('hex')));
 app.use(
   session({
@@ -47,7 +45,7 @@ app.get('/login', (req, res) => {
   res.status(501).send();
 });
 
-app.post('/callback', async (req, res) => {
+app.get('/callback', async (req, res) => {
   res.status(501).send();
 });
 
