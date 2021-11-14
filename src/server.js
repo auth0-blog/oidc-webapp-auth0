@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const crypto = require('crypto');
 const express = require('express');
@@ -18,7 +17,7 @@ passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(crypto.randomBytes(16).toString('hex')));
 app.use(
   session({
