@@ -46,7 +46,7 @@ app.get('/login', (req, res) => {
   res.status(501).send();
 });
 
-app.post('/callback', async (req, res) => {
+app.get('/callback', async (req, res) => {
   res.status(501).send();
 });
 
